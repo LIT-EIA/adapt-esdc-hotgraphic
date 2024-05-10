@@ -31,7 +31,7 @@ define([
         },
 
         setUpEventListeners: function() {
-            this.listenTo(Adapt, 'device:resize', this.reRender);
+            this.listenTo(Adapt, 'device:changed', this.reRender);
 
             this.listenTo(this.model.get('_children'), {
                 'change:_isActive': this.onItemsActiveChange,
