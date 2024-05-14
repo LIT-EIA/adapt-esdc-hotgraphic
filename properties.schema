@@ -164,15 +164,6 @@
             "help": "Body text displayed in the popup",
             "translatable": true
           },
-          "strapline": {
-            "type": "string",
-            "required": true,
-            "default": "",
-            "inputType": "Text",
-            "validators": ["required"],
-            "help": "Strapline - displayed on mobile version only",
-            "translatable": true
-          },
           "_graphic": {
             "type": "object",
             "required": true,
