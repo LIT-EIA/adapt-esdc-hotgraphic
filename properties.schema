@@ -73,6 +73,15 @@
           "help": "Alternative text for the image",
           "translatable": true
         },
+        "_forceFullWidth": {
+          "type": "boolean",
+          "required": false,
+          "default": false,
+          "inputType": "Checkbox",
+          "validators": [],
+          "title": "Force full width",
+          "help": "Force full width"
+        },
         "attribution": {
           "type":"string",
           "required":false,

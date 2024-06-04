@@ -6,7 +6,15 @@
 	.hotgraphic-graphic {
 		position: relative;
 		display: inline-block;
-		width: 100%;
+		max-width: 100%;
+
+    &.full-width {
+      width: 100%;
+  
+      img {
+        width: 100%;
+      }
+    }
 	}
 
 	.hotgraphic-graphic-pin {

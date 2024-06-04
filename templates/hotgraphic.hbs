@@ -1,7 +1,7 @@
 <div class="hotgraphic-inner component-inner">
   {{> component this}}
   <div class="hotgraphic-widget component-widget {{#unless _useGraphicsAsPins}}pin{{else}}tile{{/unless}}">
-    <div class="hotgraphic-graphic"{{#unless _useGraphicsAsPins}} role="list"{{/unless}}>
+    <div class="hotgraphic-graphic {{#if _graphic._forceFullWidth}} full-width{{/if}}"{{#unless _useGraphicsAsPins}} role="list"{{/unless}}>
       {{#unless _useGraphicsAsPins}}
         <img src="{{_graphic.src}}" {{#if _graphic.alt}}aria-label="{{_graphic.alt}}"{{else}}aria-hidden="true"{{/if}}/>
         {{#if _graphic.attribution}}
