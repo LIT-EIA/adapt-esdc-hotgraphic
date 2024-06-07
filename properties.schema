@@ -225,6 +225,17 @@
             "title": "Pin finder",
             "noTitle": true
           },
+          "_pinfinderSize": {
+            "type": "string",
+            "required": false,
+            "default": "100",
+            "inputType": "Text",
+            "validators": [],
+            "help": "Pin finder sizing",
+            "title": "Pin finder size",
+            "hiddenField": true,
+            "noTitle": true
+          },
           "_pin": {
             "type": "object",
             "required": false,
