@@ -32,7 +32,7 @@ define([
 
     setUpEventListeners: function () {
       this.listenTo(Adapt, 'device:changed', this.reRender);
-      this.listenTo(Adapt, 'device:resize', this.resizePins);
+      this.listenTo(Adapt, 'device:resize', this.onResize);
       this.listenTo(this.model.get('_children'), {
         'change:_isActive': this.onItemsActiveChange,
         'change:_isVisited': this.onItemsVisitedChange
@@ -117,6 +117,7 @@ define([
     },
 
     preRender: function () {
+      console.log(this.model);
       if (Adapt.device.screenSize === 'large') {
         this.render();
       } else {
@@ -131,7 +132,32 @@ define([
         this.setupInviewCompletion('.component-widget');
       }
       this.$('.hotgraphic-widget').imageready(function () {
+        self.repositionPins();
         self.resizePins();
+      });
+    },
+
+    onResize: function(){
+      this.resizePins();
+      this.repositionPins();
+    },
+
+    repositionPins: function(){
+      var pinElements = this.$el.find('.hotgraphic-graphic-pin');
+      var pinModels = this.model.get('_items');
+      pinElements.each(function (index) {
+        var pinElement = this;
+        var $pin = $(pinElement);
+        var pinModel = pinModels[index];
+        var pinWidth = pinElement.getBoundingClientRect().width;
+        var pinHeight = pinElement.getBoundingClientRect().height;
+        var bottom = pinModel._top + pinHeight;
+        var center = pinModel._left + (pinWidth/2);
+        console.log(bottom);
+        console.log(center);
+        $pin.css('top', `unset`);
+        $pin.css('bottom', `calc(${(100 - pinModel._top)}%)`);
+        $pin.css('left', `calc(${pinModel._left}%`);
       });
     },
 
